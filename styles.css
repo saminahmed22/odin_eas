@@ -1,0 +1,22 @@
+.rowDivs{
+    display: flex;
+    flex-direction: row;
+    
+}
+.square{
+    border: 1px solid silver;
+    height: 10px;
+    width: 10px;
+}
+.square:hover{
+    border-color: black;
+}
+
+.square:visited{
+    color: black;
+}
+
+#container{
+    display: flex;
+    flex-direction: column;
+}
