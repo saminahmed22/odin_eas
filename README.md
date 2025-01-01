@@ -1,1 +1,1 @@
-# odin_eas
+A project form The Odin Project called Etch-a-Sketch.
