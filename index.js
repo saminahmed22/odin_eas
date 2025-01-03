@@ -26,6 +26,7 @@ function createGrid(pixelCount){
 
 let pixel = 16;
 createGrid(pixel);
+btn = document.querySelector(".sizebtn");
 btn.addEventListener("click", () => {
     pixel = Number(prompt("Add the pixel count for each side(100 max!)"));
     if(pixel <= 100){
@@ -43,7 +44,7 @@ btn.addEventListener("click", () => {
 
 })
 
-btn = document.querySelector(".sizebtn");
+
 function listeners(){
     squares = document.querySelectorAll(".square")
     squares.forEach(square => {
