@@ -5,9 +5,10 @@
 }
 
 #container{
-    margin: 100px;
+    margin: 50px;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
     border: 1px solid black;
 }
