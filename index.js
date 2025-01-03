@@ -47,9 +47,20 @@ btn.addEventListener("click", () => {
 
 function listeners(){
     squares = document.querySelectorAll(".square")
+
+
+    let isMouseDown = false;
+
+    document.addEventListener("mousedown", () => isMouseDown = true)
+    document.addEventListener("mouseup", () => isMouseDown = false)
+
     squares.forEach(square => {
         square.addEventListener("mouseover", () => {
+            if(isMouseDown){
+                square.style.backgroundColor = 'black';
+            }
             square.style.borderColor = 'black';
+            
         })
         square.addEventListener("mouseout", () => {
             square.style.borderColor = 'silver';
@@ -60,8 +71,10 @@ function listeners(){
         square.addEventListener("contextmenu", () => {
             square.style.backgroundColor = "white";
         })
-    })    
-}
+    })
+};
+
+
 
 
 
