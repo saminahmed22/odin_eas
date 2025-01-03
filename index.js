@@ -1,3 +1,11 @@
+function getRandomRGB() {
+    const r = Math.floor(Math.random() * 256);
+    const g = Math.floor(Math.random() * 256);
+    const b = Math.floor(Math.random() * 256);
+    return `${r}, ${g}, ${b}`;
+};
+
+
 const container = document.querySelector("#container");
 
 
@@ -24,7 +32,7 @@ function createGrid(pixelCount){
     });
 };
 
-let pixel = 16;
+let pixel = 50;
 createGrid(pixel);
 btn = document.querySelector(".sizebtn");
 btn.addEventListener("click", () => {
@@ -72,7 +80,7 @@ function listeners(){
     squares.forEach(square => {
         square.addEventListener("mouseover", () => {
             if(isMouseDown && mouseButton === "left"){
-                square.style.backgroundColor = 'black';
+                square.style.backgroundColor = `rgb(${getRandomRGB()})`;
             }
             else if(isMouseDown && mouseButton === "right"){
                 square.style.backgroundColor = 'white';
@@ -85,7 +93,7 @@ function listeners(){
             square.style.borderColor = 'silver';
         })
         square.addEventListener("click", () => {
-            square.style.backgroundColor = 'black';
+            square.style.backgroundColor = `#rgb(${getRandomRGB()})`;
         })
         square.addEventListener("contextmenu", () => {
             square.style.backgroundColor = "white";
