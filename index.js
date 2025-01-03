@@ -48,19 +48,38 @@ btn.addEventListener("click", () => {
 function listeners(){
     squares = document.querySelectorAll(".square")
 
-
     let isMouseDown = false;
+    let mouseButton = null;
 
-    document.addEventListener("mousedown", () => isMouseDown = true)
+    document.addEventListener("mousedown", (e) => {
+        if(e.button === 0){
+            isMouseDown = true;
+            mouseButton = "left";
+        }
+        else if(e.button === 2){
+            isMouseDown = true;
+            mouseButton = "right";
+        }
+    })
+
+    document.addEventListener("mouseup", () => {
+        isMouseDown = false;
+        mouseButton = null;
+    })
+
     document.addEventListener("mouseup", () => isMouseDown = false)
 
     squares.forEach(square => {
         square.addEventListener("mouseover", () => {
-            if(isMouseDown){
+            if(isMouseDown && mouseButton === "left"){
                 square.style.backgroundColor = 'black';
             }
-            square.style.borderColor = 'black';
-            
+            else if(isMouseDown && mouseButton === "right"){
+                square.style.backgroundColor = 'white';
+            }
+            else{
+                square.style.borderColor = 'black';
+            }
         })
         square.addEventListener("mouseout", () => {
             square.style.borderColor = 'silver';
@@ -73,10 +92,6 @@ function listeners(){
         })
     })
 };
-
-
-
-
 
 
 listeners();
